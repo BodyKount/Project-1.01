@@ -34,38 +34,22 @@
             <h2>Track Your Workout Routine</h2>
             <form>
                 <label for="day">Day of the Week
-                    <select name="day">
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
+                    <select name="day" id="day">
+                        <option value="" selected="selected">Select subject</option>
                     </select>
                 </label>
 
                 <label for="muscle-group">Muscle Group
-                    <select name="Muscle-group">
-                        <option value="Chest">Chest</option>
-                        <option value="Back">Back</option>
-                        <option value="Arms">Arms</option>
-                        <option value="Legs">Legs</option>
-                        <option value="Shoulders">Shoulders</option>
-                        <option value="Core">Core</option>
+                    <select name="Muscle-group" id="muscle">
+                        <option value="" selected="selected">Please select subject first</option>
                     </select>
                 </label>
 
 <!--TO DO: MAKE where the EXCERCISE DROP DOWN CHANGES BASE ON THE MUSCLE GROUP YOU SELECT.-->
 
                 <label for="exercise">Exercise
-                    <select name="Exercise">
-                        <option value="Bench Press">Bench Press</option>
-                        <option value="Deadlift">Deadlift</option>
-                        <option value="Squat">Squat</option>
-                        <option value="Pull-up">Pull-up</option>
-                        <option value="Push-up">Push-up</option>
-                        <option value="Plank">Plank</option>
+                    <select name="exercise" id="exercise">
+                        <option value="" selected="selected">Please select topic first</option>
                     </select>
                 </label>
 
@@ -82,5 +66,6 @@
         </div>
         
     </main>
+    <script src="./dropdownlist.js"></script>
 </body>
 </html>
