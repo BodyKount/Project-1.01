@@ -192,3 +192,30 @@ input[type="number"], select {
        grid-template-columns: 1fr; 
     }
 }
+
+
+/*Modal styling */
+
+
+
+button.btn.btn-primary {
+    background-color: #1E3A8A;
+    color: #ffffff;
+    display: block;
+    margin: auto;
+    
+
+
+}
+
+button.btn.btn-primary:hover {
+    background-color: #13293d;
+}
+
+.modal-image {
+
+    width: 500px; /* Set desired width */
+
+    height: 300px; /* Set desired height */
+
+}
