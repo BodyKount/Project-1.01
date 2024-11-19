@@ -101,7 +101,7 @@ submitButton.addEventListener('click', function (event) {
 
 
     }
-    if (objInfo.repsInput !== null && objInfo.setsInput !== null && objInfo.setsInput !== undefined && objInfo.repsInput !== undefined)
+    if (objInfo.repsInput !== null && objInfo.setsInput !== null && objInfo.setsInput !== undefined && objInfo.repsInput !== undefined&&objInfo.weightInput>=0)
     {
         const set = JSON.parse(localStorage.getItem("Objsets"));
         const rep = JSON.parse(localStorage.getItem("Objreps"));
