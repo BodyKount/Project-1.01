@@ -46,7 +46,7 @@ let workoutImages = {
     'TricepKickback': './assets/Images/Arm_Exercise/Dumbbell_Tricep_Kickback.jpg',
     'BarbellSkullCrusher': './assets/Images/Arm_Exercise/Barbell_Skull_Crusher.jpg',
     'EZBarbellPreacherCurl': './assets/Images/Arm_Exercise/EZ_Barbell_Preacher_Curl.jpg',
-    'TricepPushbown': './assets/Images/Arm_Exercise/Triceps_Pushdown.jpg',
+    'TricepPushdown': './assets/Images/Arm_Exercise/Triceps_Pushdown.jpg',
     //Legs images
     'Squat': './assets/Images/Leg_Exercise/Squats.jpg',
     'BarbellSquat': './assets/Images/Leg_Exercise/Barbell_Squats.jpg',
