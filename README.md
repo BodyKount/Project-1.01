@@ -10,4 +10,4 @@ Screenshot:
 ![Project Image 1](https://github.com/user-attachments/assets/31e94b7e-bf00-4dd2-a9fc-046626724157)
 ![Project Image 2](https://github.com/user-attachments/assets/d026700a-2c83-4402-9f31-ae38045667f3)
 
-Link to deployed application: 
+Link to deployed application: https://bodykount.github.io/Workout-Journal/
