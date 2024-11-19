@@ -4,7 +4,7 @@ const backLP = document.querySelector('#backLP');
 backLP.addEventListener("click", function (event) {
  event.preventDefault();
 
- redirectPage("index.html");
+redirectPage('journal.html');
 
 });
 
