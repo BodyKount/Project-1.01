@@ -107,6 +107,7 @@ input[type="number"], select {
     outline: none;
     border-color: #60A5FA; /* Lighter blue for focus */
   }
+ 
 
 
 /* Header Styles */
@@ -115,7 +116,7 @@ input[type="number"], select {
     padding: 10px 20px;
 }
 
-.navbar #back-button {
+.navbar #backLP {
     background: #1E3A8A;
     color: #ffffff;
     padding: 10px 20px;
