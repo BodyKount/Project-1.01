@@ -10,45 +10,41 @@
 </head>
 <body>
     <header>
-        <h1>Journal Entries</h1>
-        <nav>
-            <button id="back">Back to Entry Page</button>
-        </nav>
+        <h1>Workout Journal</h1>
+     
     </header>
 <main>
+    <div>
+        <h2>Stretch and Warm-Up</h2>
+        <p>Stretch and warm-up before starting your workout. This will help prevent injury and prepare your body for the workout ahead.</p>
+        <p>10 minutes whole body stretch</p>
+        <p>30 minutes of low intensity Cardio (Treadmill, Elliptical, Stationary Bike)</p>
+    </div>
+    <div>
+        <button id="exerciseLists">
+            Click Here - for how-to images of workouts!
+        </button>
+    </div>
     <div>
         <h2>Input Your Journal Entries Here!</h2>
         <form id="form">
             <label for="day">Day of the Week
-                <select name="day">
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
+                <select name="day" id="day">
+                    <option value="" selected="selected">Select subject</option>
                 </select>
-
                 <label for="muscle-group">Muscle Group
-                    <select name="Muscle-group">
-                        <option value="Chest">Chest</option>
-                        <option value="Back">Back</option>
-                        <option value="Arms">Arms</option>
-                        <option value="Legs">Legs</option>
-                        <option value="Shoulders">Shoulders</option>
-                        <option value="Core">Core</option>
+                    <select name="Muscle-group" id="muscle">
+                        <option value="" selected="selected">Please select subject first</option>
                     </select>
 
                     <label for="exercise">Exercise
-                        <select name="Exercise">
-                            <option value="Bench Press">Bench Press</option>
-                            <option value="Deadlift">Deadlift</option>
-                            <option value="Squat">Squat</option>
-                            <option value="Pull-up">Pull-up</option>
-                            <option value="Push-up">Push-up</option>
-                            <option value="Plank">Plank</option>
+                        <select name="exercise" id="exercise">
+                            <option value="" selected="selected">Please select topic first</option>
                         </select>
+                    </label>
+
+                    <label for="Weight">Weight
+                        <input type="number" name="weight">
                     </label>
 
                     <label for="sets">Sets
@@ -68,4 +64,6 @@
 <button>Add Another Entry</button>
 <button id="submit">Submit</button>
 <script defer src="./Journal.js" type="text/javascript"></script>
+<script src="dropdownlist.js"></script> 
+<script src="journalToList.js"></script>
 </body>
