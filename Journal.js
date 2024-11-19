@@ -133,7 +133,6 @@ function readLocalStorage() {
     let temp = [];
     const tempitem = JSON.parse(localStorage.getItem('objJounarl'));
 
-
     temp.push(tempitem);
 
     return temp;
