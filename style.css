@@ -107,6 +107,7 @@ input[type="number"], select {
     outline: none;
     border-color: #60A5FA; /* Lighter blue for focus */
   }
+ 
 
 
 @media  screen and (max-width: 768px) {
