@@ -1,199 +1,70 @@
+document.getElementById('submit').addEventListener('click', function() {
+    const day = document.getElementById('day').value;
+    const muscle = document.getElementById('muscle').value;
+    const exercise = document.getElementById('exercise').value;
+    const weight = document.querySelector('input[name="weight"]').value;
+    const sets = document.querySelector('input[name="sets"]').value;
+    const reps = document.querySelector('input[name="reps"]').value;
 
+    if (day && muscle && exercise && weight && sets && reps) {
+        const entry = {
+            day,
+            muscle,
+            exercise,
+            weight,
+            sets,
+            reps
+        };
 
-// reps - x amount of times
-// set = how many done
+        let journalEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+        journalEntries.push(entry);
+        localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
 
-const form = document.querySelector("#form");
-const back = document.querySelector('#back');
-const submitButton = document.querySelector("#submit");
-const errorMsgDiv = document.querySelector("#errMsg");
-
-const weightInput = document.querySelector('#weight');
-const setsInput = document.querySelector('input[name="sets"]');
-const repsInput = document.querySelector('input[name="reps"]');
-
-function setitem() {
-
-    weightInput.addEventListener("change", function (weightevent) {
-        const weights = Number(weightevent.target.value);
-        
-        if (weights !== null && weights > 0 && weights !== undefined) {
-            const setweights = localStorage.setItem('Objsets', JSON.stringify(weights));
-            //console.log("weights:" + weights);
-            return setweights;
-        }
-
-
-    })
-
-    setsInput.addEventListener("change", function (setevent) {
-        const sets = Number(setevent.target.value);
-        //console.log("set:" + sets);
-        if (sets !== null && sets > 0 && sets !== undefined) {
-            const setSets = localStorage.setItem('Objsets', JSON.stringify(sets));
-
-            return setSets;
-        }
-
-
-    })
-    repsInput.addEventListener("change", function (repevent) {
-        const reps = Number(repevent.target.value);
-        //console.log("rep:" + reps);
-        if (reps !== null && reps > 0 && reps !== undefined) {
-            const setReps = localStorage.setItem('Objreps', JSON.stringify(reps));
-
-            return setReps;
-        }
-    
-
-
-
-    })
-
-    const Objweights = { setweightsInput };
-    const Objsets = { setsInput };
-    const Objreps = { repsInput };
-
-
-
-    let array = [];
-
-    array.push(Objweights);
-    array.push(Objreps);
-    array.push(Objsets);
-
-
-
-    return array;
-
-}
-
-submitButton.addEventListener('click', function (event) {
-    event.preventDefault();
-        console.log("event click" + event);
-        errorMsgDiv.innerHTML = ""; //clear text.
-
-      const objInfo = setitem();
-
-
-      if (weightsInput.value === '') {
-
-          weightInput.value = 0;
-      }
-
-
-    if (repsInput.value === '') {
-        const errorMsg = document.createElement('p');
-        errorMsg.textContent = "reps cannot be empty";
-        errorMsgDiv.appendChild(errorMsg);
-
-       // console.log("test1: "+errorMsg);
-
-
+        document.getElementById('form').reset();
+        document.getElementById('errMsg').textContent = 'Entry saved successfully!';
+        location.reload(); // Refresh the page to show the new entry
+    } else {
+        document.getElementById('errMsg').textContent = 'Please fill out all fields.';
     }
-    if (setsInput.value === '') {
-        const errorMsg = document.createElement('p');
-        errorMsg.textContent = "sets cannot be empty";
-        errorMsgDiv.appendChild(errorMsg);
-        
-        //console.log("test2: "+errorMsg);
-
-
-    }
-    if (objInfo.repsInput !== null && objInfo.setsInput !== null && objInfo.setsInput !== undefined && objInfo.repsInput !== undefined&&objInfo.weightInput>=0)
-    {
-        const weight = JSON.parse(localStorage.getItem("Objweights"));
-        const set = JSON.parse(localStorage.getItem("Objsets"));
-        const rep = JSON.parse(localStorage.getItem("Objreps"));
-
-        const objJounarl = { weight, set, rep };
-        storeLocalStorage(objJounarl)
-
-    }
-
 });
 
-back.addEventListener("click", function (event) {
-    event.preventDefault();
+function displayJournalEntries() {
+    const journalEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+    const table = document.getElementById('tbl');
+    table.innerHTML = '';
 
-    redirectPage("index.html");
+    if (journalEntries.length > 0) {
+        const headerRow = document.createElement('tr');
+        const headers = ['Day', 'Muscle Group', 'Exercise', 'Weight', 'Sets', 'Reps'];
+        headers.forEach(headerText => {
+            const header = document.createElement('th');
+            header.textContent = headerText;
+            headerRow.appendChild(header);
+        });
+        table.appendChild(headerRow);
 
+        journalEntries.forEach(entry => {
+            const row = document.createElement('tr');
+            Object.values(entry).forEach(text => {
+                const cell = document.createElement('td');
+                cell.textContent = text;
+                row.appendChild(cell);
+            });
+            table.appendChild(row);
+        });
+    } else {
+        const noDataRow = document.createElement('tr');
+        const noDataCell = document.createElement('td');
+        noDataCell.textContent = 'No entries found';
+        noDataCell.colSpan = 6;
+        noDataRow.appendChild(noDataCell);
+        table.appendChild(noDataRow);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', displayJournalEntries);
+
+document.getElementById('RefreshBtn').addEventListener('click', function() {
+    localStorage.clear();
+    location.reload();
 });
-
-
-
-function storeLocalStorage(objJounarl) {
-
-    localStorage.setItem('objJounarl', JSON.stringify(objJounarl));
-
-}
-
-function readLocalStorage() {
-    let temp = [];
-    const tempitem = JSON.parse(localStorage.getItem('objJounarl'));
-
-    temp.push(tempitem);
-
-    return temp;
-
-}
-
-
-function getLocalStorage() {
-    localStorage.getItem("objJounarl");
-}
-
-function setLocalStorage() {
-    localStorage.setItem("objJounarl", objJounarl);
-}
-
-
-let redirectURL = '';
-
-const redirectPage = function (url) {
-    redirectURL = url;
-    location.assign(url);
-}
-
-
-function renderJournal() {
-    //    <table id="tbl"></table>
-    //table headers: Day    Muscle Group    Exercise   Weight      Sets        Reps
-
-    const journalEntry = document.querySelector('#tbl');
-    const tblheaderrow = document.createElement("thead"); //1. table head element
-    const tblrowEl = document.createElement("tr");  //2. table row element.
-
-    const tblheaderDay = document.createElement("th"); //3. table header element
-    const tblheaderMuscleGroup = document.createElement("th"); //3. table header element
-    const tblheaderExercise = document.createElement("th"); //3. table header element
-    const tblheaderWeight = document.createElement("th"); //3. table header element
-    const tblheaderSets = document.createElement("th"); //3. table header element
-    const tblheaderReps = document.createElement("th"); //3. table header element
-
-    const tblbodyEl = document.createElement("tbody");  //4.  table body element containing data.
-    const tbldatecellEl = document.createElement("td"); //5. table data cell element.
-
-    //building headers of table
-    tblheaderDay.textContent = "Day";
-    tblrowEl.appendChild(tblheaderDay);
-    tblheaderMuscleGroup.textContent = "Muscle Group";
-    tblrowEl.appendChild(tblheaderMuscleGroup);
-    tblheaderExercise.textContent = "Exercise";
-    tblrowEl.appendChild(tblheaderMuscleGroup);
-    tblheaderWeight.textContent = "Weight";
-    tblrowEl.appendChild(tblheaderWeight);
-    tblheaderSets.textContent = "Sets";
-    tblrowEl.appendChild(tblheaderSets);
-    tblheaderReps.textContent = "Reps";
-    tblrowEl.appendChild(tblheaderReps);
-    tblbodyEl.appendChild(tblrowEl);
-
-
-    journalEntry.appendChild(tblbodyEl); //add table body to table.
-
-
-}
-
-renderJournal();

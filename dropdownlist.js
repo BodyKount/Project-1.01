@@ -1,6 +1,6 @@
 let dropDown1 = {
     "Sunday": {
-        "Chest": ["Push-ups", "Dumbbell Press", "Bench Press","Butterfly", "Decline Bench Press", "Incline Bench Press", "Cable Seated Chest Fly", "Pec Deck Flyes", "Chest Press"],
+        "Chest": ["Push-ups", "Dumbbell Press", "Bench Press","Butterfly", "Decline Bench Press", "Incline Bench Press", "Cable Seated Chest Fly", "Chest Press"],
         "Back": ["Deadlift", "Lateral Pulldown", "Cable Seated Row", "One Arm Dumbbell Row", "Barbell Row", "Reverse Machine Fly", "Back Extension"],
         "Arms": ["Bicep Curl", "Dumbbell Tricep Extension", "Hammer Curl", "Tricep Dip", "Tricep Kickback", "Barbell Skull Crusher", "EZ Barbell Preacher Curl", "Tricep Pushbown"],
         "Legs": ["Squat", "Barbell Squat", "Deadlift", "Lunges", "Leg Press", "Seated Leg Curl", "Leg Extension", "Calf Raises", "Barbell Hip Thrust"],
