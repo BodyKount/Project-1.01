@@ -8,12 +8,23 @@ const back = document.querySelector('#back');
 const submitButton = document.querySelector("#submit");
 const errorMsgDiv = document.querySelector("#errMsg");
 
-
+const weightInput = document.querySelector('#weight');
 const setsInput = document.querySelector('input[name="sets"]');
 const repsInput = document.querySelector('input[name="reps"]');
 
 function setitem() {
 
+    weightInput.addEventListener("change", function (weightevent) {
+        const weights = Number(weightevent.target.value);
+        
+        if (weights !== null && weights > 0 && weights !== undefined) {
+            const setweights = localStorage.setItem('Objsets', JSON.stringify(weights));
+            //console.log("weights:" + weights);
+            return setweights;
+        }
+
+
+    })
 
     setsInput.addEventListener("change", function (setevent) {
         const sets = Number(setevent.target.value);
@@ -40,7 +51,7 @@ function setitem() {
 
     })
 
-
+    const Objweights = { setweightsInput };
     const Objsets = { setsInput };
     const Objreps = { repsInput };
 
@@ -48,6 +59,7 @@ function setitem() {
 
     let array = [];
 
+    array.push(Objweights);
     array.push(Objreps);
     array.push(Objsets);
 
@@ -65,12 +77,18 @@ submitButton.addEventListener('click', function (event) {
       const objInfo = setitem();
 
 
+      if (weightsInput.value === '') {
+
+          weightInput.value = 0;
+      }
+
+
     if (repsInput.value === '') {
         const errorMsg = document.createElement('p');
         errorMsg.textContent = "reps cannot be empty";
         errorMsgDiv.appendChild(errorMsg);
 
-        console.log("test1: "+errorMsg);
+       // console.log("test1: "+errorMsg);
 
 
     }
@@ -79,11 +97,11 @@ submitButton.addEventListener('click', function (event) {
         errorMsg.textContent = "sets cannot be empty";
         errorMsgDiv.appendChild(errorMsg);
         
-        console.log("test2: "+errorMsg);
+        //console.log("test2: "+errorMsg);
 
 
     }
-    if (objInfo.repsInput !== null && objInfo.setsInput !== null && objInfo.setsInput !== undefined && objInfo.repsInput !== undefined)
+    if (objInfo.repsInput !== null && objInfo.setsInput !== null && objInfo.setsInput !== undefined && objInfo.repsInput !== undefined&&objInfo.weightInput>=0)
     {
         const set = JSON.parse(localStorage.getItem("Objsets"));
         const rep = JSON.parse(localStorage.getItem("Objreps"));
