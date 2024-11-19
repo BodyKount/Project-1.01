@@ -88,7 +88,7 @@ function readLocalStorage() {
   
 }
 
-//no parsing of stringify done////////////////////////////
+//no parsing or stringify done////////////////////////////
 function getLocalStorage()
 {
     localStorage.getItem("ObjJounalnote");
